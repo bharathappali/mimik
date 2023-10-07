@@ -3,7 +3,7 @@ package cmd
 import (
 	"fmt"
 	"github.com/spf13/cobra"
-	"mimik/internal/mimik"
+	"mimik/internal/mimik_core"
 	"mimik/internal/utils"
 )
 
@@ -18,7 +18,7 @@ var launchCmd = &cobra.Command{
 			return
 		}
 
-		mimik.CreateNamespaceFiles(flags)
+		mimik_core.CreateNamespaceFiles(flags)
 	},
 }
 
