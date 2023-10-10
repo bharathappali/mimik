@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"mimik/internal/data"
 	"mimik/internal/utils"
+	"time"
 )
 
 func CreateNamespaceFiles(flags data.LaunchFlags) {
@@ -14,4 +15,12 @@ func CreateNamespaceFiles(flags data.LaunchFlags) {
 	if selectedData.Validated == true {
 
 	}
+
+	// Get the current time
+	currentTime := time.Now()
+
+	// Convert the current time to milliseconds
+	currentTimeMillis := currentTime.UnixNano() / int64(time.Millisecond)
+
+	fmt.Println("Current time in milliseconds:", currentTimeMillis)
 }

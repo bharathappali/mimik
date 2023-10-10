@@ -5,7 +5,7 @@ const (
 	DefaultFaux     = false
 	DefaultDays     = 30
 
-	MinClusters = 2
+	MinClusters = 1
 	MaxClusters = 198
 
 	MinDays = 1
@@ -17,6 +17,15 @@ const (
 	PlaceCount  = 98
 	AnimalCount = 54
 	ThingCount  = 52
+
+	DefaultDirName = "mimik-data"
+
+	MinDeployments = 5
+	MaxDeployments = 50
+	MinContainers  = 1
+	MaxContainers  = 2
+	MinReplicas    = 1
+	MaxReplicas    = 10
 )
 
 var (
