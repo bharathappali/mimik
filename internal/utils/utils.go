@@ -275,6 +275,11 @@ func CreateClusterDataFiles(
 			}
 		}
 	}
+	_, write_err := fmt.Fprintln(file, "# EOF")
+	if write_err != nil {
+		fmt.Printf("Error occured")
+		return records_counter, err
+	}
 	wg.Done()
 	return records_counter, nil
 }

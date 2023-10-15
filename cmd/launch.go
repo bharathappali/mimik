@@ -19,7 +19,7 @@ var launchCmd = &cobra.Command{
 			return
 		}
 
-		mimik_core.CreateNamespaceFiles(flags)
+		mimik_core.CreateData(flags)
 	},
 }
 
