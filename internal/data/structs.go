@@ -8,12 +8,12 @@ type LaunchFlags struct {
 	Validated bool // Indicates if the flags were successfully validated
 }
 
-type DeploymentMetadata struct {
+type DeploymentsMetadata struct {
 	NumDeployments uint8
-	Metadata       []map[string]uint8
+	Metadata       map[string]map[string]uint8
 }
 
 type SelectedContent struct {
-	ContinentCountryLocationMap map[string]map[string]map[string]map[string]DeploymentMetadata
+	ContinentCountryLocationMap map[string]map[string]map[string]map[string]DeploymentsMetadata
 	Validated                   bool // Indicates if the map is populated
 }

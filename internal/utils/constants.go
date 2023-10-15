@@ -6,7 +6,7 @@ const (
 	DefaultDays     = 30
 
 	MinClusters = 1
-	MaxClusters = 198
+	MaxClusters = 180
 
 	MinDays = 1
 	MaxDays = 365
@@ -21,11 +21,54 @@ const (
 	DefaultDirName = "mimik-data"
 
 	MinDeployments = 5
-	MaxDeployments = 50
+	MaxDeployments = 15
 	MinContainers  = 1
 	MaxContainers  = 2
 	MinReplicas    = 1
-	MaxReplicas    = 10
+	MaxReplicas    = 5
+
+	LowModeMinCPU        float64 = 0.001
+	LowModeMaxCPU        float64 = 0.3
+	LowModeMinMemory     uint64  = 75000000
+	LowModemaxMemory     uint64  = 150000000
+	LowModeCPURequest    float64 = 0.5
+	LowModeCPULimit      float64 = 1
+	LowModeMemoryRequest uint64  = 150000000
+	LowModeMemoryLimit   uint64  = 150000000
+
+	AvgModeMinCPU        float64 = 0.3
+	AvgModeMaxCPU        float64 = 1.5
+	AvgModeMinMemory     uint64  = 100000000
+	AvgModemaxMemory     uint64  = 300000000
+	AvgModeCPURequest    float64 = 1
+	AvgModeCPULimit      float64 = 2
+	AvgModeMemoryRequest uint64  = 100000000
+	AvgModeMemoryLimit   uint64  = 300000000
+
+	HighModeMinCPU        float64 = 0.8
+	HighModeMaxCPU        float64 = 3
+	HighModeMinMemory     uint64  = 300000000
+	HighModemaxMemory     uint64  = 1500000000
+	HighModeCPURequest    float64 = 2
+	HighModeCPULimit      float64 = 4
+	HighModeMemoryRequest uint64  = 1500000000
+	HighModeMemoryLimit   uint64  = 1500000000
+
+	VeryHighModeMinCPU        float64 = 1.5
+	VeryHighModeMaxCPU        float64 = 6
+	VeryHighModeMinMemory     uint64  = 1500000000
+	VeryHighModemaxMemory     uint64  = 4000000000
+	VeryHighModeCPURequest    float64 = 4
+	VeryHighModeCPULimit      float64 = 4
+	VeryHighModeMemoryRequest uint64  = 4000000000
+	VeryHighModeMemoryLimit   uint64  = 4000000000
+
+	Query_CPU_Request    string = "kube_pod_container_resource_requests_cpu_cores"
+	Query_CPU_Limit      string = "kube_pod_container_resource_limits_cpu_cores"
+	Query_Memory_Request string = "kube_pod_container_resource_requests_memory_bytes"
+	Query_Memory_limit   string = "kube_pod_container_resource_limits_memory_bytes"
+	Query_CPU_Usage      string = "container_cpu_usage_seconds_total"
+	Query_Memory_Usage   string = "container_memory_usage_bytes"
 )
 
 var (
@@ -71,5 +114,23 @@ var (
 		"bag", "camera", "clock", "hat", "headphones", "jacket", "magazine", "mirror", "newspaper", "pants",
 		"pillow", "ring", "scissors", "soap", "spoon", "table", "toothbrush", "toothpaste", "towel", "wallet",
 		"water-bottle", "wine-glass",
+	}
+
+	// Modes list
+	ResourceUsageMode = [4]string{
+		"low",
+		"avg",
+		"high",
+		"very_high",
+	}
+
+	// Resource Queries list
+	Queries = map[string]string{
+		Query_CPU_Request:    "gauge",
+		Query_CPU_Limit:      "gauge",
+		Query_Memory_Request: "gauge",
+		Query_Memory_limit:   "gauge",
+		Query_CPU_Usage:      "counter",
+		Query_Memory_Usage:   "gauge",
 	}
 )
